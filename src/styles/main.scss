@@ -1,0 +1,53 @@
+@import './reset';
+@import './fonts';
+
+// 라이트 모드 색상
+:root {
+    --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-sub: 'Montserrat', 'Pretendard', sans-serif;
+    --bg-color: #fff;
+    --text-color: #333;
+    --date-color: #999;
+    --primary-color: #007acc;
+}
+
+// 다크 모드 색상
+[data-theme='dark'] {
+    --bg-color: #121212;
+    --text-color: #fff;
+    --date-color: #fff;
+    --primary-color: #66b3ff;
+}
+// .container {
+//     height: 100vh;           
+//     overflow-y: scroll;       
+//     scroll-snap-type: y mandatory; 
+//     scroll-behavior: smooth;
+//     &::-webkit-scrollbar {
+//         display: none; 
+//     }
+// }
+.themeBtn {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+}

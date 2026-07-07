@@ -1,0 +1,135 @@
+@use '../../styles/mixins' as *;
+
+.about {
+    padding-top: 10em;
+    background-color: var(--bg-color); 
+    h2 {
+        @include section-header;
+    }
+    &Inner {
+        @include section-inner;
+    }
+        
+    // 각 아티클 섹션 (교육활동, 경력사항, 전문기술)
+    &Section {
+        margin-bottom: 2em; 
+        padding-bottom: 2em;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        h3 {
+            font-size: 1.5rem; 
+            font-weight: 500; 
+            color: #BC1F49;
+            margin-bottom: 0.5em;
+            font-family: var(--font-sub);
+        }
+        .skillDesc {
+            font-size: 1.4em; 
+            margin: 1.2em 0 0.5em;
+        }
+    }
+    &Box:not(:last-child) {
+        @include mobile {
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 2em;
+            margin-bottom: 2em;
+        }
+    }
+    &Flex {
+        @include pc {
+            display: flex;
+            align-items: start;
+            gap: 10vw;
+        }
+    }
+    &Profile {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        row-gap: 0.8em;
+        margin-top: 1.2em;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        dt {
+            font-weight: 700;
+            color: var(--text-color, #222);
+        }
+
+        dd {
+            color: --text-color;
+            word-break: keep-all;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                
+                &:hover {
+                    text-decoration: underline;
+                    color: #BC1F49;
+                }
+            }
+        }
+    }
+
+    // 타임라인 리스트 스타일 (교육활동, 경력사항)
+    .infoList {
+        li {
+            margin-bottom: 1.5em; 
+            &:last-child {
+                margin-bottom: 0.8em;
+            }
+        }
+
+        .infoTitle {
+            display: block;
+            font-size: 1.2rem; 
+            font-weight: 700;
+            color: var(--text-color, #222);
+            margin: 1.2em 0 0.3em;
+        }
+        .date {
+            display: block;
+            font-size: 1.2rem; 
+            color: #999;
+            margin-bottom: 0.6em;
+        }
+        p {
+            position: relative;
+            font-size: 1.2rem; 
+            line-height: 1.8; 
+            margin: 0 0 0.4em 0; 
+            padding-left: 0.8em;
+            color: var(--text-color); 
+            word-break: keep-all;
+
+            &::before {
+                content: "- "; 
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-block; 
+            }
+        }
+    }
+
+    // 전문 기술 리스트
+    .skillList {
+        margin: 1em 0 0;
+
+        li {
+            font-size: 1.3rem; 
+            line-height: 1.6em; 
+            margin-bottom: 0.6em; 
+            color: var(--text-color); 
+            word-break: keep-all;
+
+            strong {
+                color: var(--text-color, #222);
+                margin-right: 5px;
+            }
+        }
+    }
+}
+

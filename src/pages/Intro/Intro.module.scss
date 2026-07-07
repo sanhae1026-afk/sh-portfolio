@@ -1,0 +1,123 @@
+.intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    text-align: center;
+
+    .draw {
+        position: relative;
+        display: block;
+        padding: 3px 20px;
+        margin: 10px 0;
+        color: transparent;
+        font-size: 1.8rem;
+        font-family: var(--main-main);
+        font-weight: 700;
+        &::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 100%;
+            background-color: var(--text-color, black);
+            content: '';
+            z-index: 2;
+        }
+        // 활성화 상태
+        &.isActive {
+            animation: show 2.5s forwards;
+            &::before {
+                animation: intro 2.5s ease-in-out forwards;
+            }
+        }
+        // 순차적 등장
+        &.isWave {
+            @for $i from 1 through 8 {
+                &:nth-child(#{$i}) {
+                    &, &::before {
+                        animation-delay: #{0.5 + $i/4}s;
+                    }
+                }
+            }
+        }
+        .introList {
+            opacity: var(--scroll-opacity, 1); 
+            transition: opacity 0.1s linear; 
+        }
+    }
+
+    // 마우스 스크롤
+    .mouse {
+        position: absolute; 
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0; 
+        text-align: center; 
+        animation: mouseFadeIn 3s ease-out forwards;
+
+        .mouseBox {
+            display: inline-block;
+            width: 28px;
+            height: 44px;
+            border: 2px solid var(--text-color, #555);
+            border-radius: 20px;
+            position: relative;
+            
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background-color: var(--text-color);
+                border-radius: 50%;
+                position: absolute;
+                top: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: scroll 1.3s ease-out infinite; 
+            }
+        }
+
+        &mouseText {
+            font-size: 0.9em; 
+            margin-top: 0.6em;
+            color: var(--text-color, #555);
+            letter-spacing: 1px;
+        }
+    }
+}
+
+// -----------------------------------------
+// 애니메이션 키프레임 (Keyframes)
+// -----------------------------------------
+@keyframes intro {
+    0% { left: 0%; right: 100%; }
+    50% { left: 0%; right: 0%; }
+    100% { left: 100%; right: 0%; }
+}
+
+@keyframes show {
+    0%, 50% { color: transparent; }
+    50.00001%, 100% { color: var(--text-color, black); }
+}
+
+@keyframes scroll {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    50% { transform: translate(-50%, 10px); opacity: 0.5; }
+    100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@keyframes mouseFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
