@@ -36,7 +36,7 @@ function Project() {
 	};
 
 	return (
-		<section id='project' className={styles.project} data-aos="slide-up">
+		<section id='project' className={styles.project} data-aos="zoom-out">
 			<h2>Project</h2>
 			<div className={styles.projectInner} onMouseMove={handleMouseMove}>
 				<ul className={styles.projectList}>
