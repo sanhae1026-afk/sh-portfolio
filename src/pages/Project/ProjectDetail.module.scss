@@ -1,5 +1,4 @@
 @use '../../styles/mixins' as *;
-$img-base-url: "/images/icon/";
 
 .projectDetail {
     @include section-inner;
@@ -10,14 +9,12 @@ $img-base-url: "/images/icon/";
             position: relative;
             display: flex;
             align-items: center;
+            justify-content:space-between;
             background-color: #f8f8f8;
             padding: 2vw 5vw;
         }
         h1 {
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            transform: translate(50%, -50%);
+            color: #111;
             @include mobile {
                 font-size: 1.5rem;
             }
@@ -62,7 +59,7 @@ $img-base-url: "/images/icon/";
         color: var(--text-color);
         font-weight: bold;
         text-align: center;
-        border: 1px solid #000;
+        border: 1px solid var(--text-color);
         border-radius: 3px;
         margin: 3em auto;
         transition: 0.5s ease;
@@ -81,10 +78,10 @@ $img-base-url: "/images/icon/";
         align-items: center;
         justify-content: center;
         background-color: #f8f8f8;
-        
         height: 400px;
         margin: 0 auto;
         font-size: 1.5rem;
         font-weight: 600;
+        color: #111;
     }
 }

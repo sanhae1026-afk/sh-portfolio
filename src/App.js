@@ -29,7 +29,7 @@ const MainHome = () => {
       // 현재 스크롤 위치가 맨 위 일 때만 작동하도록 제한
       if (window.scrollY < window.innerHeight - 50) {
         if (e.deltaY > 0) {
-          // 휠을 아래로 굴렸을 때 About 섹션으로 강제 부드러운 스크롤
+          // 휠을 아래로 내렸을 때 About 섹션으로 강제 스크롤
           e.preventDefault();
           aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
@@ -86,7 +86,7 @@ function App() {
         </Route>
           
           {/* 헤더가 나오지 않는 페이지 */}
-          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/project/:id" element={<ProjectDetail theme={theme} toggleTheme={toggleTheme} />} />
         </Routes>
 
         <Footer />

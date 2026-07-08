@@ -1,9 +1,10 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projectData } from '../../data/projectData';
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 import styles from './ProjectDetail.module.scss';
 
-function ProjectDetail() {
+function ProjectDetail({ theme, toggleTheme }) {
   const IMAGE_BASE_URL = "/images/project/detail/";
 
   // 주소창에서 :id 자리에 들어온 값을 가져온다.
@@ -23,6 +24,7 @@ function ProjectDetail() {
         <div className={styles.projectDetailHeaderInner}>
           <Link to="/" className={styles.backBtn}>뒤로가기</Link>
           <h1 className={styles.title}>{project.title}</h1>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
       </header>
       <main>
