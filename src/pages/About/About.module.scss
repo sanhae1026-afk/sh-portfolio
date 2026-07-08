@@ -1,7 +1,7 @@
 @use '../../styles/mixins' as *;
 
 .about {
-    padding-top: 10em;
+    padding-top: 5em;
     background-color: var(--bg-color); 
     h2 {
         @include section-header;
@@ -12,11 +12,11 @@
         
     // 각 아티클 섹션 (교육활동, 경력사항, 전문기술)
     &Section {
-        margin-bottom: 2em; 
-        padding-bottom: 2em;
 
         &:not(:last-child) {
             border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 2em;
+            margin-bottom: 2em; 
         }
 
         h3 {

@@ -1,5 +1,5 @@
 @use '../../styles/mixins' as *;
-$img-base-url: "http://mountainsun.co.kr/images";
+$img-base-url: "/images/icon/";
 
 .projectDetail {
     @include section-inner;
@@ -25,7 +25,7 @@ $img-base-url: "http://mountainsun.co.kr/images";
         .backBtn {
             width: 24px;
             height: 24px;
-            background: url(#{$img-base-url}/icon_24_back_black.svg) no-repeat center;
+            background: url('../../assets/images/icon/icon_24_back_black.svg') no-repeat center;
             font-size: 0;
             text-indent: -999999px;
         }

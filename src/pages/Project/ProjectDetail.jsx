@@ -4,7 +4,7 @@ import { projectData } from '../../data/projectData';
 import styles from './ProjectDetail.module.scss';
 
 function ProjectDetail() {
-  const IMAGE_BASE_URL = "http://mountainsun.co.kr/images/detail/";
+  const IMAGE_BASE_URL = "/images/project/detail/";
 
   // 주소창에서 :id 자리에 들어온 값을 가져온다.
   const { id } = useParams();

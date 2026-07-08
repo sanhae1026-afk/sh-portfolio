@@ -29,9 +29,6 @@
         display: flex;
         align-items: center;
         
-        @include mobile {
-            display: none;
-        }
         .navUl {
             display: flex;
             justify-content: space-between;
@@ -39,11 +36,16 @@
             gap: 3rem;
             padding: 0;
             margin: 0;
-
+            li:not(:last-child){
+                @include mobile {
+                    display: none;
+                }
+            }
             a {
                 text-decoration: none;
                 color: var(--text-color);
             }
+            
         }
     }
 }

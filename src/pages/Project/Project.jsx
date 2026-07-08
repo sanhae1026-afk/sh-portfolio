@@ -4,7 +4,7 @@ import { projectData } from '../../data/projectData';
 import styles from './Project.module.scss';
 
 function Project() {
-	const IMAGE_BASE_URL = "http://mountainsun.co.kr/images/";
+	const IMAGE_BASE_URL = "/images/project/preview/";
 
 	// 마우스의 X, Y 좌표와 현재 호버된 프로젝트의 이미지 경로를 상태로 관리
 	const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -14,7 +14,15 @@ function Project() {
 
 	// 마우스가 움직일 때 좌표를 업데이트하는 함수
 	const handleMouseMove = (e) => {
-		setMousePos({ x: e.clientX, y: e.clientY });
+
+		// 현재 마우스 이벤트가 발생한 영역 위치 정보 가져오기
+        const rect = e.currentTarget.getBoundingClientRect();
+        
+        // projectInner 안에서 x, y 좌표만 순수하게 계산하기
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        setMousePos({ x, y });
 	};
 
 	const handleMouseEnter = (imgUrl, id) => {
@@ -30,8 +38,8 @@ function Project() {
 	return (
 		<section id='project' className={styles.project} data-aos="slide-up">
 			<h2>Project</h2>
-			<div className={styles.projectInner}>
-				<ul className={styles.projectList} onMouseMove={handleMouseMove}>
+			<div className={styles.projectInner} onMouseMove={handleMouseMove}>
+				<ul className={styles.projectList}>
 					{projectData.map((item) => (
 					<li 
 						key={item.id}

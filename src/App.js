@@ -51,7 +51,7 @@ const MainHome = () => {
   return (
     <main className="container">
       <div ref={introRef}>
-        <Intro ref={introRef} />
+        <Intro />
       </div>
       <div ref={aboutRef}>
         <About />
