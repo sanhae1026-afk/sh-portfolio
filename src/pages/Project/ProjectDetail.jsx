@@ -50,7 +50,7 @@ function ProjectDetail({ theme, toggleTheme }) {
               <img src={`${IMAGE_BASE_URL}${project.imgDetail}`} alt={`${project.title} 상세 이미지`} />
             ) : (
               <div className={styles.projectDetailNotImg}>
-                <p>상세 이미지를 준비 중입니다!!</p>
+                <p>상세 이미지 준비 중입니다!!</p>
               </div>
             )}
           </div>
