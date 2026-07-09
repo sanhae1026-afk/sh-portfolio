@@ -29,21 +29,23 @@ function ProjectDetail({ theme, toggleTheme }) {
       </header>
       <main>
         <section className={styles.projectDetail}>
-          <ul className={styles.projectDetailList}>
-            <li>
-              <strong>CLIENT</strong>
-              <p>{project.client}</p>
-            </li>
-            <li>
-              <strong>DATE</strong>
-              <p>{project.workDate}</p>
-            </li>
-            <li>
-              <strong>TYPE</strong>
-              <p>{project.tags}</p>
-            </li>
-          </ul>
-          <a href={project.linkUrl} target='_blank' rel="noopener noreferrer" className={styles.projectDetailBtn}>SITE VIEW</a>
+          <div className={styles.projectDetailInner}>
+            <ul className={styles.projectDetailList}>
+              <li>
+                <strong>CLIENT</strong>
+                <p>{project.client}</p>
+              </li>
+              <li>
+                <strong>DATE</strong>
+                <p>{project.workDate}</p>
+              </li>
+              <li>
+                <strong>TYPE</strong>
+                <p>{project.tags}</p>
+              </li>
+            </ul>
+            <a href={project.linkUrl} target='_blank' rel="noopener noreferrer" className={styles.projectDetailBtn}>SITE VIEW</a>
+          </div>
 
           <div className={styles.projectDetailImg}>
             {project.imgDetail ? (
